@@ -13,16 +13,18 @@ defmodule WhatismikedoingnowWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api" do
+    pipe_through :api
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL,
+      schema: WhatismikedoingnowWeb.Schema,
+      interface: :simple,
+      context: %{pubsub: WhatismikedoingnowWeb.Endpoint}
+  end
+
   scope "/", WhatismikedoingnowWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
-    get "/gamedesign", GameDesignController, :index
-    get "/gamedesign/:game", GameDesignController, :show
+    get "/*path", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", WhatismikedoingnowWeb do
-  #   pipe_through :api
-  # end
 end

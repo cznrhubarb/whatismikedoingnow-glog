@@ -25,8 +25,7 @@ config :whatismikedoingnow, WhatismikedoingnowWeb.Endpoint,
       "node_modules/webpack/bin/webpack.js",
       "--mode",
       "development",
-      "--watch-stdin",
-      cd: Path.expand("../assets", __DIR__)
+      "--watch-stdin"
     ]
   ]
 
@@ -61,7 +60,8 @@ config :whatismikedoingnow, WhatismikedoingnowWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/whatismikedoingnow_web/{live,views}/.*(ex)$",
-      ~r"lib/whatismikedoingnow_web/templates/.*(eex)$"
+      ~r"lib/whatismikedoingnow_web/templates/.*(eex)$",
+      ~r{lib/my_app_web/live/.*(ex)$}
     ]
   ]
 

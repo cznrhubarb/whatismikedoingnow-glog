@@ -1,3 +1,0 @@
-<div class="phx-hero">
-    <h2>This is the notes page specifically for <%= @game %>.</h2>
-</div>

@@ -1,0 +1,38 @@
+Display
+    Display a single link
+    Display all links
+    ** Display flags
+
+More GraphQL
+    Subscriptions / sockets / channels
+
+Interactions
+        Responsive to dragging on top of another note
+        Responsive to dragging to an empty space
+    Touch hold to open context menu
+    Release touch with context menu to choose option
+    Pan
+    Zoom - mouse
+    Zoom - touch
+    Search
+
+CRUD
+    Create new note
+    Create new link
+    Update note location
+    Delete note
+    Delete link
+    Edit note text in place
+    Create new flag
+    Delete flag
+
+Authentication
+    Button to display login screen
+    Display login status
+    Add single user
+    Where do I put passwords
+    Only logged in users can manipulate notes
+    Only logged in users with correct permission can manipulate notes
+
+Other random clean up
+    If you delete a user, their links and notes are not deleted. That's fine, but it will leave a bunch of null references in not_null spots so cascade that to some sort of "deleted user"

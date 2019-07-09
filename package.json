@@ -16,7 +16,7 @@
     "react-apollo": "^2.5.8",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
-    "phaser3-nineslice": "file:../../phaser3-nineslice"
+    "phaser3-nineslice": "cznrhubarb/phaser3-nineslice#master"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

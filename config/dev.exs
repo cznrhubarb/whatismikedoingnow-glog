@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :whatismikedoingnow, Whatismikedoingnow.Repo,
   username: "postgres",
-  password: "password",
+  password: "postgres",
   database: "whatismikedoingnow_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

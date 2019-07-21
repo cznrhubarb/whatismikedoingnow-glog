@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :whatismikedoingnow, Whatismikedoingnow.Repo,
   username: "postgres",
-  password: "password",
+  password: "postgres",
   database: "whatismikedoingnow_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -1,1 +1,0 @@
-{"dummy": "This is a dummy file used to trick the heroku-buildpack-phoenix-static buildpack into thinking this project is >v1.3 of Phoenix (because it is). I just have a janky configuration..."}

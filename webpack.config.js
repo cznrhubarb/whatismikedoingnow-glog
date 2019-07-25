@@ -24,6 +24,19 @@ module.exports = (env, options) => ({
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          // This is what I expected the default behavior to be, but somewhere in the process
+          //  of putting this up in source control and pulling it down on a different machine
+          //  borked it. This seems to work though.
+          options: { 
+            ...JSON.parse(fs.readFileSync(path.resolve(__dirname, '.babelrc'))) 
+          }
+        }
+      },
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
@@ -61,30 +74,13 @@ module.exports = (env, options) => ({
             }
           }
         ]
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          // This is what I expected the default behavior to be, but somewhere in the process
-          //  of putting this up in source control and pulling it down on a different machine
-          //  borked it. This seems to work though.
-          options: { 
-            ...JSON.parse(fs.readFileSync(path.resolve(__dirname, '.babelrc'))) 
-          }
-        }
       }
     ]
   },
   plugins: [
     new MiniCssExtractPlugin({ 
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
-      chunkFilename: isDevelopment ? 'css/[id].css' : '[id].[hash].css'
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
      }),
     new CopyWebpackPlugin([{ from: 'assets/static/', to: '../' }])
   ],

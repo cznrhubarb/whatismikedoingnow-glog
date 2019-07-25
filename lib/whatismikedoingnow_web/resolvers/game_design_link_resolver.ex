@@ -11,7 +11,7 @@ defmodule WhatismikedoingnowWeb.GameDesign.LinkResolver do
     case GameDesign.get_link(id) do
       nil ->
         {:error, "No link with that ID exists"}
-        link ->
+      link ->
         {:ok, link}
     end
   end

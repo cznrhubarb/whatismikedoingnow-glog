@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-boost'
 import PhaserElement from '../components/phaserElement'
 import { Plugin as NineSlicePlugin } from 'phaser3-nineslice'
 import GameDesignNote from '../components/gameDesignNote'
+import { Plugin as BitmapLinePlugin } from 'phaser3-bitmapline'
 
 const NOTE_QUERY = gql`
     {
@@ -40,7 +41,7 @@ class GameDesign extends React.Component {
                 width: 800,
                 height: 600,
                 plugins: {
-                    global: [NineSlicePlugin.DefaultCfg]
+                    global: [NineSlicePlugin.DefaultCfg, BitmapLinePlugin.DefaultCfg]
                 },
                 physics: {
                     default: 'arcade',
@@ -53,8 +54,8 @@ class GameDesign extends React.Component {
                         self.sceneRef = this;
                         //this.load.setBaseURL('http://localhost:4000/');
                 
-                        this.load.image('panel', 'http://localhost:4000/images/grey_panel.png');
-                        this.load.image('twine', 'http://localhost:4000/images/twine.png');
+                        this.load.image('panel', '../images/large-panel.png');
+                        this.load.image('twine', '../images/twine.png');
                     },
                     create: function() {
                         this.cameras.main.backgroundColor.setTo(100,149,237);
@@ -65,6 +66,9 @@ class GameDesign extends React.Component {
                             gameObject.x = x;
                             gameObject.y = y;
                         });
+
+                        let line = this.add.bitmapLine(new Phaser.Geom.Point(25, 25), new Phaser.Geom.Point(500, 25), 'twine');
+                        //setInterval(() => line.end = new Phaser.Geom.Point(500, line.end.y + 1), 10);
                     }
                 }
             }

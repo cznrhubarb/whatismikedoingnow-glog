@@ -6,11 +6,11 @@ export default class GameDesignNote extends Phaser.GameObjects.Container {
 
         this.noteId = noteData.id;
 
-        const cornerSize = 7;
-        const footerSize = 35;
+        const cornerSize = 14;
+        const footerSize = 32;
         const noteWidth = 240;
         let noteText = scene.add.text(
-            cornerSize, cornerSize, 
+            cornerSize, cornerSize-3, 
             noteData.text, 
             { 
                 fontFamily: 'Arial', 
@@ -21,8 +21,8 @@ export default class GameDesignNote extends Phaser.GameObjects.Container {
         );
         const noteHeight = noteText.height + cornerSize * 2;
         let noteFooter = scene.add.nineslice(
-            0, noteHeight - cornerSize,
-            noteWidth, footerSize,
+            0, 0,
+            noteWidth, noteHeight + footerSize,
             'panel',
             cornerSize
         );
@@ -38,7 +38,7 @@ export default class GameDesignNote extends Phaser.GameObjects.Container {
         this.add(noteBody);
         this.add(noteText);
 
-        this.setSize(noteWidth, noteHeight + footerSize - cornerSize);
+        this.setSize(noteWidth, noteHeight + footerSize);
         this.setInteractive();
         this.input.hitArea.x += this.width/2;
         this.input.hitArea.y += this.height/2;

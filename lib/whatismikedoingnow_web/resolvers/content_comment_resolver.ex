@@ -1,4 +1,5 @@
 defmodule WhatismikedoingnowWeb.Content.CommentResolver do
+  alias Whatismikedoingnow.Content
   alias Whatismikedoingnow.Accounts
 
   def list(_root, _args, _info) do

@@ -1,4 +1,6 @@
 defmodule WhatismikedoingnowWeb.Content.TypeResolver do
+  alias Whatismikedoingnow.Content
+
   def list(_root, _args, _info) do
     types = Content.list_types()
     {:ok, types}

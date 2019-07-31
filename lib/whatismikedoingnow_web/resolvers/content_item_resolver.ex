@@ -1,4 +1,6 @@
 defmodule WhatismikedoingnowWeb.Content.ItemResolver do
+  alias Whatismikedoingnow.Content
+  
     def list(_root, _args, _info) do
       items = Content.list_items()
       {:ok, items}

@@ -8,8 +8,10 @@ defmodule WhatismikedoingnowWeb.Schema do
   alias WhatismikedoingnowWeb.GameDesign.LinkResolver
   alias Whatismikedoingnow.Accounts
   alias WhatismikedoingnowWeb.Accounts.UserResolver
-
-  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
+  alias Whatismikedoingnow.Content
+  alias WhatismikedoingnowWeb.Content.TypeResolver
+  alias WhatismikedoingnowWeb.Content.ItemResolver
+  alias WhatismikedoingnowWeb.Content.CommentResolver
 
   def context(ctx) do
     loader =
@@ -53,6 +55,36 @@ defmodule WhatismikedoingnowWeb.Schema do
       arg :id, non_null(:id)
 
       resolve &UserResolver.find/3
+    end
+
+    field :content_types, non_null(list_of(non_null(:content_type))) do
+      resolve &TypeResolver.list/3
+    end
+
+    field :content_type, :content_type do
+      arg :id, non_null(:id)
+
+      resolve &TypeResolver.find/3
+    end
+
+    field :content_items, non_null(list_of(non_null(:content_item))) do
+      resolve &ItemResolver.list/3
+    end
+
+    field :content_item, :content_item do
+      arg :id, non_null(:id)
+
+      resolve &ItemResolver.find/3
+    end
+
+    field :content_comments, non_null(list_of(non_null(:content_comment))) do
+      resolve &CommentResolver.list/3
+    end
+
+    field :content_comment, :content_comment do
+      arg :id, non_null(:id)
+
+      resolve &CommentResolver.find/3
     end
   end
 
@@ -121,6 +153,70 @@ defmodule WhatismikedoingnowWeb.Schema do
       arg :id, non_null(:id)
 
       resolve &UserResolver.delete/3
+    end
+    
+    field :create_content_type, :content_type do
+      arg :name, non_null(:string)
+      #icon?
+
+      resolve &TypeResolver.create/3
+    end
+
+    field :update_content_type, :content_type do
+      arg :id, non_null(:id)
+      arg :content_type, :update_content_type_params
+
+      resolve &TypeResolver.update/3
+    end
+
+    field :delete_content_type, :content_type do
+      arg :id, non_null(:id)
+
+      resolve &TypeResolver.delete/3
+    end
+    
+    field :create_content_item, :content_item do
+      arg :blurb, non_null(:string)
+      arg :link, :string
+      arg :payload, :string
+      arg :thumbnail, :string
+      arg :type_id, non_null(:id)
+
+      resolve &ItemResolver.create/3
+    end
+
+    field :update_content_item, :content_item do
+      arg :id, non_null(:id)
+      arg :content_item, :update_content_item_params
+
+      resolve &ItemResolver.update/3
+    end
+
+    field :delete_content_item, :content_item do
+      arg :id, non_null(:id)
+
+      resolve &ItemResolver.delete/3
+    end
+    
+    field :create_content_comment, :content_comment do
+      arg :body, non_null(:string)
+      arg :content_item_id, non_null(:id)
+      arg :author_id, non_null(:id)
+
+      resolve &CommentResolver.create/3
+    end
+
+    field :update_content_comment, :content_comment do
+      arg :id, non_null(:id)
+      arg :content_comment, :update_content_comment_params
+
+      resolve &CommentResolver.update/3
+    end
+
+    field :delete_content_comment, :content_comment do
+      arg :id, non_null(:id)
+
+      resolve &CommentResolver.delete/3
     end
   end
 end

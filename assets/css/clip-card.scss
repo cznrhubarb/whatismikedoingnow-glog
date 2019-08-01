@@ -1,0 +1,165 @@
+.full-card {
+  position: relative;
+  width: 323px;
+  height: 348px;
+  overflow: hidden;
+  
+
+  .thumb-img {
+    width: 323px;
+    height: 348px;
+    position:absolute;
+    mask-image: url("../static/images/full_card_b.png");
+    -webkit-mask-image: url("../static/images/full_card_b.png");
+    -webkit-clip-path: polygon(0% 55%, 0% 0%, 100% 0%, 100% 45%);
+    clip-path: polygon(0% 55%, 0% 0%, 100% 0%, 100% 45%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .thumb-img:hover {
+    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .thumb-img:hover ~ .desc-img {
+    -webkit-clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
+    clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .thumb-img:hover ~ .sash-img {
+    -webkit-clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
+    clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .thumb-img:hover ~ .card-icon {
+    top: 317px;
+    transition: top 0.25s linear;
+  }
+
+  .thumb-img:hover ~ .blurb {
+    top: 100%;
+    transition: top 0.25s linear;
+  }
+
+  .desc-img {
+    -webkit-clip-path: polygon(0% 100%, 0% 60%, 100% 50%, 100% 100%);
+    clip-path: polygon(0% 100%, 0% 60%, 100% 50%, 100% 100%);
+    transition: clip-path 0.25s linear;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .desc-img:hover {
+    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .desc-img:hover ~ .sash-img {
+    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+    clip-path: polygon(0% 10%, 0% 0%, 100% 0%, 100% 10%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .desc-img:hover ~ .thumb-img {
+    -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+    transition: clip-path 0.25s linear;
+  }
+
+  .desc-img:hover ~ .card-icon {
+    top: 4px;
+    transition: top 0.25s linear;
+  }
+
+  .desc-img:hover ~ .blurb {
+    top: 15%;
+    transition: top 0.25s linear;
+  }
+
+  .sash-img {
+    -webkit-clip-path: polygon(0% 60%, 0% 50%, 100% 40%, 100% 50%);
+    clip-path: polygon(0% 60%, 0% 50%, 100% 40%, 100% 50%);
+    transition: clip-path 0.25s linear;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .card-icon {
+    position: relative;
+    color:white;
+    font-size: 26px;
+    transition: top 0.25s linear;
+    top: 145px;
+    left: 290px;
+  }
+
+  .blurb {
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    left: 5%;
+    top: 65%;
+    width: 90%;
+    height: 100%;
+    transition: top 0.25s linear;
+    pointer-events: none;
+  }
+
+  .blurb-title {
+    color: #124A5E;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .blurb-body {
+    color: black;
+    font-size: 16px;
+  }
+}
+
+.half-card {
+  position: relative;
+  width: 323px;
+  height: 174px;
+  overflow: hidden;
+  background-image: url("../static/images/half_card.png");
+  
+
+  .card-icon {
+    position: relative;
+    color:white;
+    font-size: 26px;
+    top: 3%;
+    left: 88%;
+  }
+
+  .blurb {
+    position: relative;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    vertical-align: center;
+    left: 5%;
+    top: 40%; // This number should really be 50%, but something is le borked
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    width: 90%;
+    pointer-events: none;
+  }
+
+  .blurb-title {
+    color: #124A5E;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .blurb-body {
+    color: black;
+    font-size: 16px;
+  }
+}

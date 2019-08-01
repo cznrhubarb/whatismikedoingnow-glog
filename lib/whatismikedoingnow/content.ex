@@ -8,6 +8,14 @@ defmodule Whatismikedoingnow.Content do
 
   alias Whatismikedoingnow.Content.Type
 
+  def data do
+    Dataloader.Ecto.new(Repo, query: &query/2)
+  end
+
+  def query(queryable, _params) do
+    queryable
+  end
+
   @doc """
   Returns the list of types.
 

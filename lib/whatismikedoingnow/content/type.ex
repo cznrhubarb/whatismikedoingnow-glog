@@ -5,7 +5,7 @@ defmodule Whatismikedoingnow.Content.Type do
 
   schema "types" do
     field :name, :string
-    field :icon, :binary
+    field :icon, :string
     has_many :item, Item
 
     timestamps()

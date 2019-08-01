@@ -1,3 +1,25 @@
+#####################################
+##Front Page
+
+Tidy up all the CSS for it is sinful
+Make it real React code and not this trash
+Pull in Apollo React components
+Pull all card data from database
+Determine if card data is half or full layout based on data
+
+Background color semitone column
+Title card graphic
+Layout cards responsively
+Click the card to open the relevant Page
+
+Figure out the outputPath of the file loader images and why it is weird
+Add lemmings gif
+Social media links??
+Book stack??
+
+#####################################
+##Game Design Page
+
 Display
     Display a single link
     Display all links

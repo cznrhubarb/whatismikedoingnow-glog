@@ -38,8 +38,7 @@ defmodule WhatismikedoingnowWeb.Schema.Types do
 
   object :content_type do
     field :name, non_null(:string)
-    #TODO: Gonna need to switch this to a URL string as well (or base64 encode the binary?)
-    #field :icon, non_null(:binary)
+    field :icon, non_null(:string)
     field :content_items, non_null(list_of(:content_item)), resolve: dataloader(Content)
   end
 
@@ -76,8 +75,7 @@ defmodule WhatismikedoingnowWeb.Schema.Types do
 
   input_object :update_content_type_params do
     field :name, :string
-    #TODO: Gonna need to switch this to a URL string as well (or base64 encode the binary?)
-    #field :icon, :binary
+    field :icon, :string
   end
 
   input_object :update_content_item_params do

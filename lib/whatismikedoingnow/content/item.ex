@@ -2,6 +2,7 @@ defmodule Whatismikedoingnow.Content.Item do
   use Ecto.Schema
   import Ecto.Changeset
   alias Whatismikedoingnow.Content.Type
+  alias Whatismikedoingnow.Content.Comment
 
   schema "items" do
     field :blurb, :string
@@ -9,6 +10,7 @@ defmodule Whatismikedoingnow.Content.Item do
     field :payload, :string
     field :thumbnail, :string
     belongs_to :type, Type
+    has_many :comment, Comment
 
     timestamps()
   end

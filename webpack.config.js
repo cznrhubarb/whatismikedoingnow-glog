@@ -41,39 +41,53 @@ module.exports = (env, options) => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
+        test: /\.(ttf|eot|svg|otf|gif|png|jpe?g)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [{loader: 'file-loader', options: {outputPath: 'js'}}]
+      },
+      {
         test: /\.module\.s(a|c)ss$/,
-        loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin,
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
-              camelCase: true,
-              sourceMap: isDevelopment
-            }
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment
-            }
-          }
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
         ]
+        // loader: [
+        //   isDevelopment ? 'style-loader' : MiniCssExtractPlugin,
+        //   {
+        //     loader: 'css-loader',
+        //     options: {
+        //       modules: true,
+        //       localIdentName: '[name]__[local]__[hash:base64:5]',
+        //       camelCase: true,
+        //       sourceMap: isDevelopment
+        //     }
+        //   },
+        //   {
+        //     loader: 'sass-loader',
+        //     options: {
+        //       sourceMap: isDevelopment
+        //     }
+        //   }
+        // ]
       },
       {
         test: /\.s(a|c)ss$/,
         exclude: /\.module.(s(a|c)ss)$/,
-        loader: [
-          isDevelopment ? 'style-loader' : MiniCssExtractPlugin,
-          'css-loader',
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: isDevelopment
-            }
-          }
+        use: [
+          "style-loader",
+          "css-loader",
+          "sass-loader"
         ]
+        // loader: [
+        //   isDevelopment ? 'style-loader' : MiniCssExtractPlugin,
+        //   'css-loader',
+        //   {
+        //     loader: 'sass-loader',
+        //     options: {
+        //       sourceMap: isDevelopment
+        //     }
+        //   }
+        // ]
       }
     ]
   },
@@ -82,7 +96,7 @@ module.exports = (env, options) => ({
       filename: isDevelopment ? '[name].css' : '[name].[hash].css',
       chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
      }),
-    new CopyWebpackPlugin([{ from: 'assets/static/', to: '../' }])
+    new CopyWebpackPlugin([{ from: 'assets/static/', to: '../' }, { from: 'assets/css/', to: '../css/' }])
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.scss']

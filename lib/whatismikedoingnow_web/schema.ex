@@ -18,6 +18,7 @@ defmodule WhatismikedoingnowWeb.Schema do
       Dataloader.new()
       |> Dataloader.add_source(GameDesign, GameDesign.data())
       |> Dataloader.add_source(Accounts, Accounts.data())
+      |> Dataloader.add_source(Content, Content.data())
 
       Map.put(ctx, :loader, loader)
   end
@@ -157,7 +158,7 @@ defmodule WhatismikedoingnowWeb.Schema do
     
     field :create_content_type, :content_type do
       arg :name, non_null(:string)
-      #icon?
+      arg :icon, non_null(:string)
 
       resolve &TypeResolver.create/3
     end

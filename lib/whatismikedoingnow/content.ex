@@ -138,7 +138,8 @@ defmodule Whatismikedoingnow.Content do
 
   """
   def list_items do
-    Repo.all(Item)
+    query = Item |> order_by([i], desc: i.inserted_at) |> select([i], i)
+    Repo.all(query)
   end
 
   @doc """

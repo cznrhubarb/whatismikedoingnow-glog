@@ -1,0 +1,7 @@
+@import 'theme';
+
+.content-column {
+  background-color: $bg-screen;
+  max-width: #{($card-width + $card-spacing) * 4}px;
+  margin: auto;
+}

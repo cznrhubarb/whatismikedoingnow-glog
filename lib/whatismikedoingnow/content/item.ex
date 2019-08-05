@@ -5,6 +5,7 @@ defmodule Whatismikedoingnow.Content.Item do
   alias Whatismikedoingnow.Content.Comment
 
   schema "items" do
+    field :title, :string
     field :blurb, :string
     field :link, :string
     field :payload, :string
@@ -18,7 +19,7 @@ defmodule Whatismikedoingnow.Content.Item do
   @doc false
   def changeset(item, attrs) do
     item
-    |> cast(attrs, [:blurb, :link, :payload, :thumbnail])
-    |> validate_required([:blurb, :link, :payload, :thumbnail])
+    |> cast(attrs, [:title, :blurb, :link, :payload, :thumbnail])
+    |> validate_required([:title, :blurb, :link, :payload, :thumbnail])
   end
 end

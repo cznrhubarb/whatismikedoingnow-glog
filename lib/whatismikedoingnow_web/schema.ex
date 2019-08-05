@@ -177,6 +177,7 @@ defmodule WhatismikedoingnowWeb.Schema do
     end
     
     field :create_content_item, :content_item do
+      arg :title, non_null(:string)
       arg :blurb, non_null(:string)
       arg :link, :string
       arg :payload, :string

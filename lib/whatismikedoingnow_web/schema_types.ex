@@ -43,6 +43,8 @@ defmodule WhatismikedoingnowWeb.Schema.Types do
   end
 
   object :content_item do
+    field :id, :id
+    field :title, non_null(:string)
     field :blurb, non_null(:string)
     field :link, :string
     field :payload, :string

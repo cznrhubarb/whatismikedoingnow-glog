@@ -5,3 +5,18 @@ $accent-lt-blue: #09A4DE;
 $accent-dk-blue: #124A5E;
 
 $bg-color: $accent-dk-blue;
+$bg-screen: #356576;
+
+$card-width: 250;
+$card-height: 310;
+$card-spacing: 20;
+
+// Lighter font weight for this specific icon gives us a different icon.
+.fa-newspaper {
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: LemonMilk;
+  src: url('../static/fonts/LemonMilkitalic.woff') format('woff');
+}

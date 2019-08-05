@@ -41,8 +41,12 @@ module.exports = (env, options) => ({
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
+        test: /\.(woff|woff2)$/,
+        use: [{loader: 'file-loader', options: {outputPath: '../fonts/'}}]
+      },
+      {
         test: /\.(ttf|eot|svg|otf|gif|png|jpe?g)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: [{loader: 'file-loader', options: {outputPath: 'js'}}]
+        use: [{loader: 'file-loader', options: {outputPath: '../images'}}]
       },
       {
         test: /\.module\.s(a|c)ss$/,

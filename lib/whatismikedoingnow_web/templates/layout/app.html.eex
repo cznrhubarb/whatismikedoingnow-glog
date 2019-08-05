@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Whatismikedoingnow · Phoenix Framework</title>
     <script src="https://kit.fontawesome.com/9a4a8399c8.js"></script>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
     <%= render @view_module, @view_template, assigns %>

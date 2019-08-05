@@ -1,165 +1,179 @@
-.full-card {
+@import 'theme';
+
+.card-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+}
+
+.card-grid-column {
+  background-clip: padding-box;
+}
+
+%blurb-base {
   position: relative;
-  width: 323px;
-  height: 348px;
+  left: 5%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+  width: 90%;
+  pointer-events: none;
+  color: black;
+  font-size: 13px;
+}
+
+%icon-base {
+  position: relative;
+  color: white;
+  font-size: 26px;
+  float: right;
+  right: 10px;
+}
+
+.card {
+  position: relative;
   overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  margin: #{$card-spacing/2}px;
+  transition: all 0.25s ease;
+
+  > * {
+    transition: all 0.25s ease;
+  }
+}
+
+.title-card {
+  width: #{$card-width * 2 + $card-spacing}px;
+  height: #{$card-height}px;
+}
+
+.card-title {
+  position: relative;
+  left: 10px;
+  font-family: 'LemonMilk', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
+  font-size: 30px;
+}
+
+.full-card {
+  width: #{$card-width}px;
+  height: #{$card-height}px;
   
-
   .thumb-img {
-    width: 323px;
-    height: 348px;
-    position:absolute;
-    mask-image: url("../static/images/full_card_b.png");
-    -webkit-mask-image: url("../static/images/full_card_b.png");
-    -webkit-clip-path: polygon(0% 55%, 0% 0%, 100% 0%, 100% 45%);
-    clip-path: polygon(0% 55%, 0% 0%, 100% 0%, 100% 45%);
-    transition: clip-path 0.25s linear;
-  }
+    width: #{$card-width}px;
+    height: #{$card-height}px;
+    position: absolute;
+    mask-image: url("../static/images/full_card.png");
+    -webkit-mask-image: url("../static/images/full_card.png");
+    
+    &:hover {
+      -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      
+      ~ .desc-img {
+        -webkit-clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
+        clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
+      }
 
-  .thumb-img:hover {
-    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    transition: clip-path 0.25s linear;
-  }
+      ~ .sash-img {
+        -webkit-clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
+        clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
+      }
 
-  .thumb-img:hover ~ .desc-img {
-    -webkit-clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
-    clip-path: polygon(0% 100%, 0% 100%, 100% 100%, 100% 100%);
-    transition: clip-path 0.25s linear;
-  }
-
-  .thumb-img:hover ~ .sash-img {
-    -webkit-clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
-    clip-path: polygon(0% 100%, 0% 90%, 100% 90%, 100% 100%);
-    transition: clip-path 0.25s linear;
-  }
-
-  .thumb-img:hover ~ .card-icon {
-    top: 317px;
-    transition: top 0.25s linear;
-  }
-
-  .thumb-img:hover ~ .blurb {
-    top: 100%;
-    transition: top 0.25s linear;
+      ~ .card-title {
+        top: #{$card-height * 0.895}px;
+        transform: rotate(0deg) scale(0.6, 1) translate(-35%, 0);
+      }
+    
+      ~ .card-icon {
+        top: 78%;
+        transform: rotate(0deg);
+      }
+    
+      ~ .blurb {
+        top: 100%;
+      }
+    }
   }
 
   .desc-img {
     -webkit-clip-path: polygon(0% 100%, 0% 60%, 100% 50%, 100% 100%);
     clip-path: polygon(0% 100%, 0% 60%, 100% 50%, 100% 100%);
-    transition: clip-path 0.25s linear;
     position: absolute;
-    top: 0%;
-    left: 0%;
-  }
 
-  .desc-img:hover {
-    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    transition: clip-path 0.25s linear;
-  }
-
-  .desc-img:hover ~ .sash-img {
-    -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
-    clip-path: polygon(0% 10%, 0% 0%, 100% 0%, 100% 10%);
-    transition: clip-path 0.25s linear;
-  }
-
-  .desc-img:hover ~ .thumb-img {
-    -webkit-clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
-    clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
-    transition: clip-path 0.25s linear;
-  }
-
-  .desc-img:hover ~ .card-icon {
-    top: 4px;
-    transition: top 0.25s linear;
-  }
-
-  .desc-img:hover ~ .blurb {
-    top: 15%;
-    transition: top 0.25s linear;
+    &:hover {
+      -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+      clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+  
+      ~ .sash-img {
+        -webkit-clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
+        clip-path: polygon(0% 10%, 0% 0%, 100% 0%, 100% 10%);
+      }
+      
+      ~ .card-title {
+        top: 0px;
+        transform: rotate(0deg) scale(0.6, 1) translate(-35%, 0);
+      }
+    
+      ~ .card-icon {
+        top: -12%;
+        transform: rotate(0deg);
+      }
+    
+      ~ .blurb {
+        top: 0%;
+      }
+    }
   }
 
   .sash-img {
     -webkit-clip-path: polygon(0% 60%, 0% 50%, 100% 40%, 100% 50%);
     clip-path: polygon(0% 60%, 0% 50%, 100% 40%, 100% 50%);
-    transition: clip-path 0.25s linear;
     position: absolute;
-    top: 0%;
-    left: 0%;
+  }
+
+  .card-title {
+    top: #{$card-height * 0.445}px;
+    transform: rotate(-7deg) scale(0.6, 1) translate(-35%, 0);
   }
 
   .card-icon {
-    position: relative;
-    color:white;
-    font-size: 26px;
-    transition: top 0.25s linear;
-    top: 145px;
-    left: 290px;
+    @extend %icon-base;
+    top: 29%;
+    transform: rotate(-7deg);
   }
 
   .blurb {
-    position: relative;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    left: 5%;
-    top: 65%;
-    width: 90%;
-    height: 100%;
-    transition: top 0.25s linear;
-    pointer-events: none;
-  }
-
-  .blurb-title {
-    color: #124A5E;
-    font-weight: bolder;
-    font-size: 20px;
-  }
-
-  .blurb-body {
-    color: black;
-    font-size: 16px;
+    @extend %blurb-base;
+    top: 47%;
   }
 }
 
 .half-card {
-  position: relative;
-  width: 323px;
-  height: 174px;
-  overflow: hidden;
+  width: #{$card-width}px;
+  height: #{($card-height - $card-spacing) / 2}px;
   background-image: url("../static/images/half_card.png");
-  
 
+  .card-title {
+    top: #{$card-height * 0.027}px;
+    transform: rotate(-4deg) scale(0.6, 1) translate(-35%, 0);
+  }
+  
   .card-icon {
-    position: relative;
-    color:white;
-    font-size: 26px;
-    top: 3%;
-    left: 88%;
+    @extend %icon-base;
+    top: -25%;
+    transform: rotate(-4deg);
   }
 
   .blurb {
-    position: relative;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    vertical-align: center;
-    left: 5%;
-    top: 40%; // This number should really be 50%, but something is le borked
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width: 90%;
-    pointer-events: none;
+    @extend %blurb-base;
+    top: 5%;
   }
+}
 
-  .blurb-title {
-    color: #124A5E;
-    font-weight: bolder;
-    font-size: 20px;
-  }
-
-  .blurb-body {
-    color: black;
-    font-size: 16px;
-  }
+.card-placeholder {
+  width: #{$card-width}px;
+  height: #{$card-height}px;
+  margin: #{$card-spacing/2}px;
 }
